@@ -1,0 +1,47 @@
+[Input Output]
+checkpoint_dir = ./training_g2dpn_final
+expression_basis_fname = ./training_data/init_expression_basis.npy
+template_fname = ./template/FLAME_sample.ply
+deepspeech_graph_fname = ./ds_graph/output_graph.pb
+verts_mmaps_path = ./training_data/data_verts.npy
+raw_audio_path = ./training_data/raw_audio_fixed.pkl
+processed_audio_path = ./training_data/processed_audio_deepspeech.pkl
+templates_path = ./training_data/templates.pkl
+data2array_verts_path = ./training_data/subj_seq_to_idx.pkl
+
+[Audio Parameters]
+audio_feature_type = deepspeech
+num_audio_features = 29
+audio_window_size = 16
+audio_window_stride = 1
+condition_speech_features = True
+speech_encoder_size_factor = 1.0
+
+[Model Parameters]
+num_vertices = 5023
+expression_dim = 50
+init_expression = True
+num_consecutive_frames = 2
+absolute_reconstruction_loss = False
+velocity_weight = 10.0
+acceleration_weight = 0.0
+verts_regularizer_weight = 0.0
+
+[Data Setup]
+subject_for_training = FaceTalk_170728_03272_TA FaceTalk_170904_00128_TA FaceTalk_170725_00137_TA FaceTalk_170915_00223_TA FaceTalk_170811_03274_TA FaceTalk_170913_03279_TA FaceTalk_170904_03276_TA FaceTalk_170912_03278_TA
+sequence_for_training = sentence01 sentence02 sentence03 sentence04 sentence05 sentence06 sentence07 sentence08 sentence09 sentence10 sentence11 sentence12 sentence13 sentence14 sentence15 sentence16 sentence17 sentence18 sentence19 sentence20 sentence21 sentence22 sentence23 sentence24 sentence25 sentence26 sentence27 sentence28 sentence29 sentence30 sentence31 sentence32 sentence33 sentence34 sentence35 sentence36 sentence37 sentence38 sentence39 sentence40
+subject_for_validation = FaceTalk_170811_03275_TA FaceTalk_170908_03277_TA
+sequence_for_validation = sentence21 sentence22 sentence23 sentence24 sentence25 sentence26 sentence27 sentence28 sentence29 sentence30 sentence31 sentence32 sentence33 sentence34 sentence35 sentence36 sentence37 sentence38 sentence39 sentence40
+subject_for_testing = FaceTalk_170809_00138_TA FaceTalk_170731_00024_TA
+sequence_for_testing = sentence21 sentence22 sentence23 sentence24 sentence25 sentence26 sentence27 sentence28 sentence29 sentence30 sentence31 sentence32 sentence33 sentence34 sentence35 sentence36 sentence37 sentence38 sentence39 sentence40
+
+[Learning Parameters]
+batch_size = 64
+learning_rate = 1e-4
+decay_rate = 1
+epoch_num = 50
+adam_beta1_value = 0.9
+
+[Visualization Parameters]
+num_render_sequences = 3
+
